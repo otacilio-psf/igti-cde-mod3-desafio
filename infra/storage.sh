@@ -1,0 +1,1 @@
+gsutil mb -p ${PROJECT_ID} -c STANDARD -l US-CENTRAL1 gs://igti-bootcamp-otacilio
