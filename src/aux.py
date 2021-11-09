@@ -1,5 +1,3 @@
-from pyspark.sql.functions import col, to_date
-
 opt_dict = {'sep': ';', 'encoding': 'ISO-8859-1', "escape": "\""}
 
 def read_csv(spark, path, schema):
