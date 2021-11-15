@@ -3,11 +3,6 @@ from pyspark.sql.functions import *
 from src.schemas import schema_cnae, schema_muni, schema_estab
 from src.aux import read_csv, read_parquet, write_parquet
 
-print("=========================== Spark Session ============================")
-spark = SparkSession.builder.appName("desafio-de-igti").getOrCreate()
-spark.conf.set('spark.sql.legacy.parquet.datetimeRebaseModeInWrite', 'CORRECTED')
-
-
 class ELT():
 
     def extract_raw(self):
@@ -59,8 +54,12 @@ class ELT():
         self.load_trusted()
         self.transform_refined()
 
-etl = ELT()
-etl.process()
 
-# Stop application
-spark.stop()
+if __name__ == '__main__':
+    spark = SparkSession.builder.appName("desafio-de-igti").getOrCreate()
+    spark.conf.set('spark.sql.legacy.parquet.datetimeRebaseModeInWrite', 'CORRECTED')
+
+    etl = ELT()
+    etl.process()
+
+    spark.stop()

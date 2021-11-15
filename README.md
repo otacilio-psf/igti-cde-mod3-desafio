@@ -12,3 +12,10 @@ tabelas mais interessantes e confiáveis para o usuário final.
 * Juntar as tabelas, consolidando as informações em um único DataFrame.
 * Escrever os dados em um do bucket privado do GCS, chamada "refined".
 * Analisar os dados respondendo as perguntas do desafio.
+
+Steps:
+* `source infra/exports`
+* `bash infra/storage.sh`
+* `bash infra/cluster.sh`
+* `bash submit-job.sh`
+* Fazer a análise usando o jupyter notebook do cluster Dataproc
